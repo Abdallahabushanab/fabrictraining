@@ -1,0 +1,81 @@
+[
+  {
+    "uniqueIdentifier": "eb2b5668-b33d-4d81-ab1d-32f4bc0442b9",
+    "payload": {
+      "name": "Training 101",
+      "description": "Container Description",
+      "type": "rthSubscriptions"
+    },
+    "type": "container-v1"
+  },
+  {
+    "uniqueIdentifier": "82648e28-fd3e-451c-9381-07e17b98cdab",
+    "payload": {
+      "name": "RealTimeHub",
+      "connection": {
+        "scope": "Artifact",
+        "tenantId": "c4a2818d-3066-467d-8613-794243cdc85d",
+        "workspaceId": "558b72f4-f4fb-4d9d-8e76-b69b0cfe0a20",
+        "artifactId": "265ab3fa-1671-46ce-ac18-c43fdff1ad35",
+        "eventGroupType": "Microsoft.Fabric.JobEvents"
+      },
+      "filterSettings": {
+        "eventTypes": [
+          {
+            "name": "Microsoft.Fabric.JobEvents.ItemJobCreated"
+          },
+          {
+            "name": "Microsoft.Fabric.JobEvents.ItemJobStatusChanged"
+          },
+          {
+            "name": "Microsoft.Fabric.JobEvents.ItemJobSucceeded"
+          },
+          {
+            "name": "Microsoft.Fabric.JobEvents.ItemJobFailed"
+          }
+        ],
+        "filters": []
+      }
+    },
+    "type": "realTimeHubSource-v1"
+  },
+  {
+    "uniqueIdentifier": "e5f32e6f-317d-4120-9f29-d2b596cbde52",
+    "payload": {
+      "name": "JobEvents event",
+      "definition": {
+        "type": "Event",
+        "instance": "{\"templateId\":\"SourceEvent\",\"templateVersion\":\"1.1\",\"steps\":[{\"name\":\"SourceEventStep\",\"id\":\"ad98e5ef-8aef-428a-acbb-1ac23bc79994\",\"rows\":[{\"name\":\"SourceSelector\",\"kind\":\"SourceReference\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"82648e28-fd3e-451c-9381-07e17b98cdab\"}]}]}]}"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "1a38fb77-ae2d-4c68-9dc9-de9ba7134a27",
+    "payload": {
+      "name": "JobEvents event alert",
+      "definition": {
+        "type": "Rule",
+        "instance": "{\"templateId\":\"EventTrigger\",\"templateVersion\":\"1.2.6\",\"steps\":[{\"name\":\"FieldsDefaultsStep\",\"id\":\"2fe0e6dc-3cdc-4a70-a2d2-39491d39518b\",\"rows\":[{\"name\":\"EventSelector\",\"kind\":\"Event\",\"arguments\":[{\"kind\":\"EventReference\",\"type\":\"complex\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"e5f32e6f-317d-4120-9f29-d2b596cbde52\"}],\"name\":\"event\"}]}]},{\"name\":\"EventDetectStep\",\"id\":\"ecdd0ca3-5cbd-44be-887b-d08fc22e734c\",\"rows\":[{\"name\":\"OnEveryValue\",\"kind\":\"OnEveryValue\",\"arguments\":[]}]},{\"name\":\"ActStep\",\"id\":\"bc38a342-b742-444a-9bf0-eeb7ef978b2a\",\"rows\":[{\"name\":\"FabricItemBinding\",\"kind\":\"FabricItemInvocation\",\"arguments\":[{\"name\":\"fabricJobConnectionDocumentId\",\"type\":\"string\",\"value\":\"4fbf5225-fedb-4245-af8a-9224047a955e\"},{\"name\":\"parameters\",\"type\":\"array\",\"values\":[]},{\"name\":\"additionalInformation\",\"type\":\"array\",\"values\":[]},{\"name\":\"workspaceId\",\"type\":\"string\",\"value\":\"00000000-0000-0000-0000-000000000000\"},{\"name\":\"itemId\",\"type\":\"string\",\"value\":\"0cdc4c8a-6ad6-90e2-4d3e-6bc8b4ff6f4a\"},{\"name\":\"itemType\",\"type\":\"string\",\"value\":\"Pipeline\"},{\"name\":\"jobType\",\"type\":\"string\",\"value\":\"Pipeline\"}]}]}]}",
+        "settings": {
+          "shouldRun": true,
+          "shouldApplyRuleOnUpdate": true
+        }
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "4fbf5225-fedb-4245-af8a-9224047a955e",
+    "payload": {
+      "name": "Fabric item action",
+      "fabricItem": {
+        "itemId": "0cdc4c8a-6ad6-90e2-4d3e-6bc8b4ff6f4a",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "itemType": "Pipeline"
+      },
+      "jobType": "Pipeline"
+    },
+    "type": "fabricItemAction-v1"
+  }
+]

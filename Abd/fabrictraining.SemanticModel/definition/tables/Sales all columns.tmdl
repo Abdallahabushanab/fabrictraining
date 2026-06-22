@@ -1,0 +1,87 @@
+table 'Sales all columns'
+	lineageTag: 8559f60a-c216-4b20-b24f-842d84af4bf4
+
+	column SaleID
+		dataType: int64
+		formatString: 0
+		lineageTag: 9dc93bef-b186-4248-8970-6241078103cd
+		summarizeBy: count
+		sourceColumn: SaleID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductID
+		dataType: double
+		lineageTag: 228325e6-58bc-46eb-b433-1f416a0c0b86
+		summarizeBy: none
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CustomerID
+		dataType: string
+		lineageTag: 7740678f-6651-45c6-ba86-59d3e1e8416d
+		summarizeBy: none
+		sourceColumn: CustomerID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Amount
+		dataType: int64
+		formatString: 0
+		lineageTag: ca5094f2-65b5-4231-8906-85565a53fbb5
+		summarizeBy: sum
+		sourceColumn: Amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Name'
+		dataType: string
+		lineageTag: de8b8056-730e-4b7a-88c8-416ef8c2adbc
+		summarizeBy: none
+		sourceColumn: Customer Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: 2ff4192c-8e7e-4077-a8d4-a8b0c286341a
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product Name'
+		dataType: string
+		lineageTag: 29b1406e-ec65-471f-9162-20447e6b729b
+		summarizeBy: none
+		sourceColumn: Product Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: 6fbf00c2-c356-4297-be59-1776229f7f30
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Sales all columns' = m
+		mode: import
+		source =
+				let
+				    Source = Table.NestedJoin(#"fact Sales_fabric", {"CustomerID"}, #"dim Customer", {"CustomerID"}, "dim Customer", JoinKind.LeftOuter),
+				    #"Expanded dim Customer" = Table.ExpandTableColumn(Source, "dim Customer", {"CustomerName", "Region"}, {"dim Customer.CustomerName", "dim Customer.Region"}),
+				    #"Merged Queries" = Table.NestedJoin(#"Expanded dim Customer", {"ProductID"}, #"dim Product", {"ProductID"}, "dim Product", JoinKind.LeftOuter),
+				    #"Expanded dim Product" = Table.ExpandTableColumn(#"Merged Queries", "dim Product", {"ProductName", "Category"}, {"dim Product.ProductName", "dim Product.Category"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Expanded dim Product",{{"dim Product.Category", "Category"}, {"dim Product.ProductName", "Product Name"}, {"dim Customer.Region", "Region"}, {"dim Customer.CustomerName", "Customer Name"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

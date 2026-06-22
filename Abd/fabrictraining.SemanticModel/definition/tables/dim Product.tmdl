@@ -1,0 +1,40 @@
+table 'dim Product'
+	lineageTag: 21aa66e6-b319-42c0-b425-f27a1e9bd558
+
+	column ProductID
+		dataType: double
+		lineageTag: 977017c5-6b93-49c1-9c67-8f4c0df5f883
+		summarizeBy: none
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ProductName
+		dataType: string
+		lineageTag: 74f44a93-acad-4943-bfa8-01c860f494c0
+		summarizeBy: none
+		sourceColumn: ProductName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: 30aaa914-907f-49e7-8a98-fc17f6e11b96
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dim Product' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("rwa2frdggb6unbqtpfbehtoilu-6rziwvp36sou3dtww2nqz7qkea.datawarehouse.fabric.microsoft.com", "Abdallah_LH"),
+				    dim_Product = Source{[Schema="dim",Item="Product"]}[Data]
+				in
+				    dim_Product
+
+	annotation PBI_ResultType = Table
+

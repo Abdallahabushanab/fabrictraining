@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "CopyJob",
+    "displayName": "Hyasin_job"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "c9112ad4-e7cb-905f-4cab-6dd92d308de5"
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "properties": {
+    "jobMode": "Batch",
+    "source": {
+      "type": "Excel",
+      "connectionSettings": {
+        "type": "FileServer",
+        "externalReferences": {
+          "connection": "f8ca6e1e-514a-400c-98b6-a7281f63ff0d"
+        }
+      }
+    },
+    "destination": {
+      "type": "LakehouseTable",
+      "connectionSettings": {
+        "type": "Lakehouse",
+        "typeProperties": {
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "artifactId": "9aafe124-d499-9baf-4dda-eea7c5954c0b",
+          "rootFolder": "Tables"
+        }
+      }
+    },
+    "policy": {
+      "timeout": "0.12:00:00",
+      "retry": 0
+    }
+  },
+  "activities": [
+    {
+      "id": "9c6f1f46-e26a-4ffe-ab03-38f618d0ba07",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "sheetName": "Sheet1",
+            "location": {
+              "type": "FileServerLocation",
+              "fileName": "Sales.xlsx"
+            },
+            "firstRowAsHeader": true
+          },
+          "storeSettings": {
+            "recursive": true,
+            "enablePartitionDiscovery": false
+          }
+        },
+        "destination": {
+          "partitionOption": "None",
+          "writeBehavior": "Overwrite",
+          "datasetSettings": {
+            "schema": "Sales",
+            "table": "Sales"
+          },
+          "applyVOrder": false
+        },
+        "enableStaging": false,
+        "translator": {
+          "type": "TabularTranslator",
+          "mappings": [
+            {
+              "source": {
+                "name": "SaleID",
+                "type": "String",
+                "physicalType": "String"
+              },
+              "destination": {
+                "name": "SaleID",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "Product",
+                "type": "String",
+                "physicalType": "String"
+              },
+              "destination": {
+                "name": "Product",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "Amount",
+                "type": "String",
+                "physicalType": "String"
+              },
+              "destination": {
+                "name": "Amount",
+                "physicalType": "decimal",
+                "scale": 18,
+                "precision": 38
+              }
+            }
+          ]
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {
+    "allowModernEvaluationEngine": true
+  },
+  "name": "Hasan-Dataflow",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "queriesMetadata": {
+    "Sales_fabric-Hasan": {
+      "queryId": "c5b9445e-047d-4e30-8846-90dc6888f6fa",
+      "queryName": "Sales_fabric-Hasan"
+    }
+  },
+  "connections": [
+    {
+      "path": "fabricserver1.database.windows.net;FabricB",
+      "kind": "SQL",
+      "connectionId": "{\"ClusterId\":\"5472548a-6f4f-4912-a7f3-0757bb087e41\",\"DatasourceId\":\"c5f463e7-4275-4afc-94cf-56a1884e3034\"}"
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+table 'fact sales_data_1'
+	lineageTag: d6b4e0c6-e949-44db-b270-da3b73a1a137
+
+	column OrderID
+		dataType: int64
+		formatString: 0
+		lineageTag: 70e8260e-907a-47ba-a081-a1a8e596e8fe
+		summarizeBy: count
+		sourceColumn: OrderID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: af54df4c-5701-4c87-9f1a-4e0fc85a5b98
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Product
+		dataType: string
+		lineageTag: 39f4f557-d93a-425c-ad11-c5c875e63a88
+		summarizeBy: none
+		sourceColumn: Product
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: c8c878de-b549-48a5-94e1-e9e3dcf74400
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: 37daa62b-632e-47c1-a265-2c9f90e7b1ac
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column Salesperson
+		dataType: string
+		lineageTag: 9ddd3691-415a-4bd0-ac99-7180a5a069b5
+		summarizeBy: none
+		sourceColumn: Salesperson
+
+		annotation SummarizationSetBy = Automatic
+
+	column UnitsSold
+		dataType: int64
+		formatString: 0
+		lineageTag: 3526dd26-5774-414d-af79-e01ec4eb49fa
+		summarizeBy: sum
+		sourceColumn: UnitsSold
+
+		annotation SummarizationSetBy = Automatic
+
+	column UnitPrice
+		dataType: int64
+		formatString: 0
+		lineageTag: a41078c2-5619-465c-b201-a3acc5841edf
+		summarizeBy: sum
+		sourceColumn: UnitPrice
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalSales
+		dataType: int64
+		formatString: 0
+		lineageTag: 5879b247-c321-4609-8905-09ed3d8afdac
+		summarizeBy: sum
+		sourceColumn: TotalSales
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerAge
+		dataType: int64
+		formatString: 0
+		lineageTag: 5998c9e0-f6c4-4f18-8c7b-4f6526693a9e
+		summarizeBy: sum
+		sourceColumn: CustomerAge
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymentMethod
+		dataType: string
+		lineageTag: 9fd4e3d6-8dd0-4ab3-aa66-c28e9adf8d1d
+		summarizeBy: none
+		sourceColumn: PaymentMethod
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReturnFlag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 4347e44d-2898-4701-9afc-877e082908c1
+		summarizeBy: none
+		sourceColumn: ReturnFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'sales total' = 'fact sales_data_1'[UnitPrice] * 'fact sales_data_1'[UnitsSold]
+		formatString: 0
+		lineageTag: 865ad03d-3490-49f0-9279-4d7dda6bcfb9
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'fact sales_data_1' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("rwa2frdggb6unbqtpfbehtoilu-6rziwvp36sou3dtww2nqz7qkea.datawarehouse.fabric.microsoft.com", "Abdallah_LH"),
+				    fact_sales_data_1 = Source{[Schema="fact",Item="sales_data_1"]}[Data]
+				in
+				    fact_sales_data_1
+
+	annotation PBI_ResultType = Table
+

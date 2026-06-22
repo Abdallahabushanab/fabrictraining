@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Lakehouse",
+    "displayName": "AZSQLDB_LH"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "2bce4eb1-203c-be49-4571-ea26d5147d7c"
+  }
+}

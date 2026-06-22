@@ -1,0 +1,43 @@
+{
+  "config": "{\"version\":\"5.73\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY26SU05\",\"version\":{\"visual\":\"2.9.0\",\"report\":\"3.3.0\",\"page\":\"2.3.1\"},\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY26SU05",
+            "path": "BaseThemes/CY26SU05.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Page 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "5b5090e571a36d040cc0",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"44bafedb055c587103a0\",\"layouts\":[{\"id\":0,\"position\":{\"x\":46.65538786244326,\"y\":53.516474312802565,\"z\":0,\"width\":474.7871823648638,\"height\":447.34283656342654,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"columnChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(sales_data_1.TotalSales)\"}],\"Category\":[{\"queryRef\":\"sales_data_1.Product\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"s\",\"Entity\":\"sales_data_1\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"TotalSales\"}},\"Function\":0},\"Name\":\"Sum(sales_data_1.TotalSales)\",\"NativeReferenceName\":\"TotalSales\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Product\"},\"Name\":\"sales_data_1.Product\",\"NativeReferenceName\":\"Count of Product\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"TotalSales\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 447.34,
+          "queryBinary": "H4sIAAAAAAAEAMWSTU/DMAyG/8qUE0gRahGn3tgXBwSMdRoHNE1R65WgtqncBKiq/nfstNBNghMHbvHX68eOWzEzRaHKtBbRcytioLfVyaMDbObKqvhFVTCkiKgVPsCPLWCtTSmiSymWaApffq8KEJGohRQLkrENGyqHep+S1j4k/6apKCXodpKa5ZBYX3idZQiZsl6xFYuPCqGuB2tmclf84I+NwwTWcBgN37zrpFihqQA9wMZYlcdM4SNLVyZ9n4CsgTh2xdkx6MVYdC44y+o37gQIZQJD0bGw/DMmPVNH6xihToC+wr/BzIwr7cQcJt86tOEHTAGnjV/xXCMMg9OXnSL+0/q7bkeeqS5TXWasskJdqP6+btC4itz9XZLea0/PdiDDnS/lC10DjzswsWPLvIRyJY/1nqiLee/noU2JKAwCJpDjJYcd7wUSx2p3YFEn9a3muw+Z9BPm+iybKwMAAA==",
+          "width": 474.79,
+          "x": 46.66,
+          "y": 53.52,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

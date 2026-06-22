@@ -1,0 +1,124 @@
+table sales_data_1
+	lineageTag: fb76fe48-64c0-426e-b379-b55b56292446
+
+	column OrderID
+		dataType: int64
+		formatString: 0
+		lineageTag: 0de8341f-e68b-4a42-adb6-6b3fca725721
+		summarizeBy: count
+		sourceColumn: OrderID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 7ef01d6f-7e8e-4ac3-8c03-9c57ab8014dc
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: 27144d68-6d68-4635-af7f-c375c1108c21
+			defaultHierarchy: LocalDateTable_54542daa-0d35-4b3b-b4ed-a29e6656208f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Product
+		dataType: string
+		lineageTag: d264a7f5-bb78-4cf8-b689-26a17cd5bd16
+		summarizeBy: none
+		sourceColumn: Product
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: e2c6ca7d-92bc-45f0-b3ae-d5d4b497d1be
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: 13f345dd-24df-4875-827e-c384001e2dbf
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column Salesperson
+		dataType: string
+		lineageTag: fa48b90f-8c6b-4cc0-a96f-99e609ac2b67
+		summarizeBy: none
+		sourceColumn: Salesperson
+
+		annotation SummarizationSetBy = Automatic
+
+	column UnitsSold
+		dataType: int64
+		formatString: 0
+		lineageTag: e96197d4-fc8e-4a84-b23b-4eb577edf7c2
+		summarizeBy: sum
+		sourceColumn: UnitsSold
+
+		annotation SummarizationSetBy = Automatic
+
+	column UnitPrice
+		dataType: int64
+		formatString: 0
+		lineageTag: 48e12dc4-08b8-405d-8c20-5ff6d9cfd1cb
+		summarizeBy: sum
+		sourceColumn: UnitPrice
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalSales
+		dataType: int64
+		formatString: 0
+		lineageTag: eb9f5df3-74cc-4140-8b31-2e9b675ad284
+		summarizeBy: sum
+		sourceColumn: TotalSales
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerAge
+		dataType: int64
+		formatString: 0
+		lineageTag: ebebb4f0-c66c-49d3-95c5-0991d8f8476c
+		summarizeBy: sum
+		sourceColumn: CustomerAge
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymentMethod
+		dataType: string
+		lineageTag: c10b4ca2-fc38-48f3-98e7-baeaac673bba
+		summarizeBy: none
+		sourceColumn: PaymentMethod
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReturnFlag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 4a4fa36a-f756-42ef-a5cb-93a0729db8a7
+		summarizeBy: none
+		sourceColumn: ReturnFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	partition sales_data_1 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("rwa2frdggb6unbqtpfbehtoilu-6rziwvp36sou3dtww2nqz7qkea.datawarehouse.fabric.microsoft.com", "AZSQLDB_LH"),
+				    dbo_sales_data_1 = Source{[Schema="dbo",Item="sales_data_1"]}[Data]
+				in
+				    dbo_sales_data_1
+
+	annotation PBI_ResultType = Table
+

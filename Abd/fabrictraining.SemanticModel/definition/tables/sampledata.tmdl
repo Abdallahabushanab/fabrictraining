@@ -1,0 +1,79 @@
+table sampledata
+	lineageTag: 1a8a0a0d-58d6-4954-a585-93fbfd66a449
+
+	column EmployeeID
+		dataType: int64
+		formatString: 0
+		lineageTag: f5af9870-a4bc-47dd-8ff4-1eec2593aa2b
+		summarizeBy: count
+		sourceColumn: EmployeeID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: b1cb7be5-d2d7-42fe-bbfc-1a8c0bfd8b81
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Department
+		dataType: string
+		lineageTag: 5a5be476-3135-4ed2-99df-1221e8366585
+		summarizeBy: none
+		sourceColumn: Department
+
+		annotation SummarizationSetBy = Automatic
+
+	column Salary
+		dataType: string
+		lineageTag: 0f1012f7-425f-4808-930e-2a1bce2fcb8d
+		summarizeBy: none
+		sourceColumn: Salary
+
+		annotation SummarizationSetBy = Automatic
+
+	column JoiningDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: c2bf5831-1b9f-4825-bacb-2b0efbd44fe6
+		summarizeBy: none
+		sourceColumn: JoiningDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column City
+		dataType: string
+		lineageTag: ca13929a-f5b4-4098-85f5-955b8bcf3d5b
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: a7f713cb-0e04-48d2-9961-5fd69f809e7b
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	partition sampledata = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\ThinkPad\Desktop\MS Fabric Training\Data-set\sampledata.csv"),[Delimiter=",", Columns=7, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"EmployeeID", Int64.Type}, {"Name", type text}, {"Department", type text}, {"Salary", type text}, {"JoiningDate", type date}, {"City", type text}, {"Country", type text}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each [Salary] <> null and [Salary] <> ""),
+				    #"Removed Duplicates" = Table.Distinct(#"Filtered Rows", {"EmployeeID"})
+				in
+				    #"Removed Duplicates"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

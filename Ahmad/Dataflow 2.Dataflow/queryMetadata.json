@@ -1,0 +1,34 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {
+    "allowModernEvaluationEngine": true
+  },
+  "name": "Dataflow 2",
+  "queryGroups": [],
+  "documentLocale": "en-GB",
+  "queriesMetadata": {
+    "Customer": {
+      "queryId": "37c0f79d-70ac-4b42-a06e-4f6df0c2ed27",
+      "queryName": "Customer",
+      "loadEnabled": false
+    },
+    "Customer_DataDestination": {
+      "queryId": "1a923664-7a7a-4db5-8f9c-e934333e795f",
+      "queryName": "Customer_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "fabricserver1.database.windows.net;FabricB",
+      "kind": "SQL",
+      "connectionId": "{\"ClusterId\":\"5472548a-6f4f-4912-a7f3-0757bb087e41\",\"DatasourceId\":\"d6a288b4-fe80-4cea-9ace-46cf83391dad\"}"
+    },
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"5472548a-6f4f-4912-a7f3-0757bb087e41\",\"DatasourceId\":\"081d0c9b-2ad6-4e4e-ab68-eb848b79383c\"}"
+    }
+  ]
+}

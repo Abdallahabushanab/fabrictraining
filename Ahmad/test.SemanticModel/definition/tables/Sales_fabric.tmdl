@@ -1,0 +1,50 @@
+table Sales_fabric
+	lineageTag: ef37b101-65cb-49a1-a0cc-2f790dddeab4
+
+	column SaleID
+		dataType: int64
+		formatString: 0
+		lineageTag: cf240900-fbf6-4804-8a9c-8d60f065f43c
+		summarizeBy: count
+		sourceColumn: SaleID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductID
+		dataType: double
+		lineageTag: b2e02a5d-c535-4a2c-ac19-9f2de0ebb04e
+		summarizeBy: none
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CustomerID
+		dataType: string
+		lineageTag: d22b9744-c662-44cc-9234-c44bdbf58122
+		summarizeBy: none
+		sourceColumn: CustomerID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Amount
+		dataType: int64
+		formatString: 0
+		lineageTag: 053cce0d-e9a6-4aae-a066-02087c6e2d4e
+		summarizeBy: sum
+		sourceColumn: Amount
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Sales_fabric = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("rwa2frdggb6unbqtpfbehtoilu-6rziwvp36sou3dtww2nqz7qkea.datawarehouse.fabric.microsoft.com", "AZSQLDB_LH"),
+				    dbo_Sales_fabric = Source{[Schema="dbo",Item="Sales_fabric"]}[Data]
+				in
+				    dbo_Sales_fabric
+
+	annotation PBI_ResultType = Table
+

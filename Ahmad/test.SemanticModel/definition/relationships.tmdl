@@ -1,0 +1,17 @@
+relationship 27144d68-6d68-4635-af7f-c375c1108c21
+	joinOnDateBehavior: datePartOnly
+	fromColumn: sales_data_1.Date
+	toColumn: LocalDateTable_54542daa-0d35-4b3b-b4ed-a29e6656208f.Date
+
+relationship AutoDetected_9aade0ef-e29a-4f58-a3a0-ebd54cf71866
+	fromColumn: Sales_fabric.CustomerID
+	toColumn: Customer.CustomerID
+
+relationship AutoDetected_fdd0e7cc-b78c-4182-857c-b343778b1639
+	fromColumn: sales_data_1.Region
+	toColumn: Customer.Region
+
+relationship AutoDetected_04962245-6dfb-4c41-a874-08f939c375fa
+	fromColumn: Sales_fabric.ProductID
+	toColumn: Product.ProductID
+

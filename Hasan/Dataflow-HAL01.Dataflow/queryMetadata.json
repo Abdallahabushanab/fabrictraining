@@ -1,0 +1,29 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {
+    "allowModernEvaluationEngine": true
+  },
+  "name": "Dataflow-HAL01",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "queriesMetadata": {
+    "Customer": {
+      "queryId": "6320c80b-f024-4e6c-a05f-d7acba99ff22",
+      "queryName": "Customer",
+      "loadEnabled": false
+    },
+    "Customer_DataDestination": {
+      "queryId": "392ebd3a-3f92-420f-9111-ea82917689ca",
+      "queryName": "Customer_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"5472548a-6f4f-4912-a7f3-0757bb087e41\",\"DatasourceId\":\"4cad0acf-aaea-404a-bd44-8fa8554a5faf\"}"
+    }
+  ]
+}

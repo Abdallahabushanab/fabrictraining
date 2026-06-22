@@ -1,0 +1,44 @@
+table Customer
+	lineageTag: 54ef3441-bb38-41c9-af3f-7259df084ce6
+
+	column CustomerID
+		dataType: string
+		lineageTag: 10da43d5-d3ad-4cba-a1cb-74fedeb59d7a
+		summarizeBy: none
+		sourceColumn: CustomerID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerName
+		dataType: string
+		lineageTag: a8dedcf8-b163-4c16-9bbe-5a9a36a88354
+		summarizeBy: none
+		sourceColumn: CustomerName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: f4f51543-991b-4122-9d76-c0d7ff1692a8
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column fabric
+		dataType: string
+		lineageTag: 01f7f799-245a-41d7-ac71-09f2963366c4
+		summarizeBy: none
+		sourceColumn: fabric
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Customer = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("rwa2frdggb6unbqtpfbehtoilu-6rziwvp36sou3dtww2nqz7qkea.datawarehouse.fabric.microsoft.com", "AZSQLDB_LH"),
+				    dbo_Customer = Source{[Schema="dbo",Item="Customer"]}[Data]
+				in
+				    dbo_Customer
+

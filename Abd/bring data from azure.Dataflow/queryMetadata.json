@@ -1,0 +1,34 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {
+    "allowModernEvaluationEngine": true
+  },
+  "name": "bring data from azure",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "queriesMetadata": {
+    "Customer": {
+      "queryId": "005ee71e-4827-4ea9-9c35-5a140f64a4a2",
+      "queryName": "Customer",
+      "loadEnabled": false
+    },
+    "Customer_DataDestination": {
+      "queryId": "64ae0aaa-8c28-4f18-bbad-a5bd683ecb3c",
+      "queryName": "Customer_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "fabricserver1.database.windows.net;FabricB",
+      "kind": "SQL",
+      "connectionId": "{\"ClusterId\":\"5472548a-6f4f-4912-a7f3-0757bb087e41\",\"DatasourceId\":\"8b00a8ba-ab13-4f1b-b380-0a3b368eec61\"}"
+    },
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"5472548a-6f4f-4912-a7f3-0757bb087e41\",\"DatasourceId\":\"444f3554-83fd-4a5d-bf88-7d56c3a63c96\"}"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+table 'dim Customer'
+	lineageTag: c6d7a4af-b5c5-4be7-912c-339006156daf
+
+	column CustomerID
+		dataType: string
+		lineageTag: 87bd12e8-f415-4e25-a0cb-ddf4376bdc2b
+		summarizeBy: none
+		sourceColumn: CustomerID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerName
+		dataType: string
+		lineageTag: 9215d0c1-4955-45e4-9c48-268e4a345b64
+		summarizeBy: none
+		sourceColumn: CustomerName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: 5587ba59-a638-49a8-853e-0782d04fe3bb
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column fabric
+		dataType: string
+		lineageTag: c16d43ea-22a8-48ea-8430-78e8ae69d20c
+		summarizeBy: none
+		sourceColumn: fabric
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dim Customer' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("rwa2frdggb6unbqtpfbehtoilu-6rziwvp36sou3dtww2nqz7qkea.datawarehouse.fabric.microsoft.com", "Abdallah_LH"),
+				    dim_Customer = Source{[Schema="dim",Item="Customer"]}[Data]
+				in
+				    dim_Customer
+

@@ -1,0 +1,40 @@
+table Product
+	lineageTag: 6fef39e7-4972-4d89-b21c-e8d5599d4664
+	sourceLineageTag: [dbo].[Product]
+
+	column ProductID
+		dataType: double
+		lineageTag: dc46564c-af38-4272-9a3c-848dd031e01e
+		sourceLineageTag: ProductID
+		summarizeBy: count
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ProductName
+		dataType: string
+		lineageTag: 44630d88-79f5-46ec-8e00-86beec1e1a11
+		sourceLineageTag: ProductName
+		summarizeBy: none
+		sourceColumn: ProductName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: 62fc5c24-14e5-4e3f-9e62-040a2c798b0d
+		sourceLineageTag: Category
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Product = entity
+		mode: directLake
+		source
+			entityName: Product
+			schemaName: dbo
+			expressionSource: 'DirectLake - Abdallah_LH'
+

@@ -1,0 +1,28 @@
+[
+  {
+    "name": "Sales_fabric",
+    "path": "/Tables/dbo",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/dbo/Sales_fabric",
+        "itemId": "2bce4eb1-203c-be49-4571-ea26d5147d7c",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "artifactType": "Lakehouse"
+      }
+    }
+  },
+  {
+    "name": "Product",
+    "path": "/Tables/dbo",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/dbo/Product",
+        "itemId": "2bce4eb1-203c-be49-4571-ea26d5147d7c",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "artifactType": "Lakehouse"
+      }
+    }
+  }
+]

@@ -1,0 +1,48 @@
+table Customer
+	lineageTag: cc99a407-dcb8-4b38-90e1-3676bef705fc
+	sourceLineageTag: [dbo].[Customer]
+
+	column CustomerID
+		dataType: string
+		lineageTag: 1539a7b8-58f6-4310-b2ce-c76e2626385c
+		sourceLineageTag: CustomerID
+		summarizeBy: none
+		sourceColumn: CustomerID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerName
+		dataType: string
+		lineageTag: 53a3a9d8-ea06-4737-9613-2c02431065b9
+		sourceLineageTag: CustomerName
+		summarizeBy: none
+		sourceColumn: CustomerName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: ac19e89a-4fec-469d-96f1-660cd6751ff6
+		sourceLineageTag: Region
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column Custom
+		dataType: int64
+		formatString: 0
+		lineageTag: 96cddb44-2e8a-48b4-9b6c-031a42ae0c9e
+		sourceLineageTag: Custom
+		summarizeBy: sum
+		sourceColumn: Custom
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Customer = entity
+		mode: directLake
+		source
+			entityName: Customer
+			schemaName: dbo
+			expressionSource: 'DirectLake - Abdallah_LH'
+

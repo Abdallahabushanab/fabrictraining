@@ -1,0 +1,76 @@
+{
+  "properties": {
+    "jobMode": "Batch",
+    "source": {
+      "type": "Excel",
+      "connectionSettings": {
+        "type": "FileServer",
+        "externalReferences": {
+          "connection": "f8ca6e1e-514a-400c-98b6-a7281f63ff0d"
+        }
+      }
+    },
+    "destination": {
+      "type": "DelimitedText",
+      "connectionSettings": {
+        "type": "Lakehouse",
+        "typeProperties": {
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "artifactId": "9aafe124-d499-9baf-4dda-eea7c5954c0b",
+          "rootFolder": "Files"
+        }
+      }
+    },
+    "policy": {
+      "timeout": "0.12:00:00",
+      "retry": 0
+    }
+  },
+  "activities": [
+    {
+      "id": "a48470b0-39c6-48c4-aa96-8d7f2223af7d",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "sheetName": "Sheet1",
+            "location": {
+              "type": "FileServerLocation",
+              "fileName": "Sales.xlsx"
+            },
+            "firstRowAsHeader": true
+          },
+          "storeSettings": {
+            "recursive": true,
+            "enablePartitionDiscovery": false
+          }
+        },
+        "destination": {
+          "datasetSettings": {
+            "location": {
+              "type": "LakehouseLocation",
+              "fileName": "sales"
+            },
+            "columnDelimiter": ",",
+            "escapeChar": "\\",
+            "firstRowAsHeader": true,
+            "quoteChar": "\""
+          },
+          "storeSettings": {},
+          "formatSettings": {
+            "fileExtension": ".txt"
+          }
+        },
+        "enableStaging": false,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    }
+  ]
+}

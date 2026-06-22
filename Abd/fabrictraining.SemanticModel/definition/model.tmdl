@@ -1,0 +1,21 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["dim Customer","dim Product","fact sales_data_1","fact Sales_fabric","Sales all columns","sampledata"]
+
+ref table 'dim Customer'
+ref table 'dim Product'
+ref table 'fact sales_data_1'
+ref table 'fact Sales_fabric'
+ref table 'Sales all columns'
+ref table sampledata
+
+ref cultureInfo en-US
+

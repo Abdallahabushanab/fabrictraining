@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "CopyJob",
+    "displayName": "Azure copy"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "b52f518d-3f9f-b0e3-4369-7b956e7d3643"
+  }
+}

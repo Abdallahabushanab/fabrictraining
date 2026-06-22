@@ -1,0 +1,27 @@
+relationship AutoDetected_f7ee533b-f920-433a-905e-3a7673a06799
+	fromColumn: 'fact sales_data_1'.Region
+	toColumn: 'dim Customer'.Region
+
+relationship AutoDetected_db594419-e8b8-4cc8-9a37-e9bf53111124
+	fromColumn: 'fact Sales_fabric'.CustomerID
+	toColumn: 'dim Customer'.CustomerID
+
+relationship AutoDetected_0e1599b9-fd2d-4646-95d6-a58b941fb8d8
+	fromColumn: 'Sales all columns'.CustomerID
+	toColumn: 'dim Customer'.CustomerID
+
+relationship AutoDetected_1bf5974f-d7a6-453e-b1e2-0bafa6faae57
+	fromColumn: 'fact Sales_fabric'.ProductID
+	toColumn: 'dim Product'.ProductID
+
+relationship AutoDetected_a78d7c35-688a-4763-b016-a8dca0d32836
+	fromColumn: 'Sales all columns'.ProductID
+	toColumn: 'dim Product'.ProductID
+
+relationship AutoDetected_a6c90fa6-efb6-4807-b42a-795e749c81a5
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'Sales all columns'.SaleID
+	toColumn: 'fact Sales_fabric'.SaleID
+

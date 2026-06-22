@@ -1,0 +1,35 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {
+    "allowModernEvaluationEngine": true
+  },
+  "name": "Dataflow 1",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "gatewayObjectId": "ff287f54-8ee4-43a4-ba2a-a14479ae45a2",
+  "queriesMetadata": {
+    "Documents": {
+      "queryId": "b0963c1b-69ba-451a-a6da-645b55464fef",
+      "queryName": "Documents",
+      "loadEnabled": false
+    },
+    "Documents_DataDestination": {
+      "queryId": "2c93260d-e7ff-4fd3-9a15-d6832da7060f",
+      "queryName": "Documents_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "C:\\Users\\Administrator\\Documents",
+      "kind": "Folder",
+      "connectionId": "{\"ClusterId\":\"ff287f54-8ee4-43a4-ba2a-a14479ae45a2\",\"DatasourceId\":\"f8ca6e1e-514a-400c-98b6-a7281f63ff0d\"}"
+    },
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"ff287f54-8ee4-43a4-ba2a-a14479ae45a2\",\"DatasourceId\":\"a26820dd-3bfe-4b93-851b-42caba0347b6\"}"
+    }
+  ]
+}

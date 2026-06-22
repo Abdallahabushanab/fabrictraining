@@ -1,0 +1,79 @@
+{
+  "config": "{\"version\":\"5.67\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY18SU07\",\"version\":{\"visual\":\"1.8.23\",\"report\":\"2.0.23\",\"page\":\"1.3.23\"},\"type\":2},\"customTheme\":{\"name\":\"Sunset\",\"version\":{\"visual\":\"2.10.0\",\"report\":\"3.4.0\",\"page\":\"2.3.1\"},\"type\":2}},\"activeSectionIndex\":2,\"defaultDrillFilterOtherVisuals\":true,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}],\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY18SU07",
+            "path": "BaseThemes/CY18SU07.json",
+            "type": 202
+          },
+          {
+            "name": "Sunset",
+            "path": "BuiltInThemes/Sunset.json",
+            "type": 201
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Page 2",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "6288ba77a606d6aea24d",
+      "ordinal": 1,
+      "visualContainers": [],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Page 3",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "b4d06accab671ce0d9ce",
+      "ordinal": 2,
+      "visualContainers": [],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Page 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "cb21164055eac9968398",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"dbc8bf3cd37714257007\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.450490290328784,\"y\":83.47933089790425,\"z\":0,\"width\":530.8025379734667,\"height\":636.3330128821381,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"barChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dim Customer.CustomerName\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(fact sales_data_1.TotalSales)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim Customer\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"fact sales_data_1\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"CustomerName\"},\"Name\":\"dim Customer.CustomerName\",\"NativeReferenceName\":\"CustomerName\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"TotalSales\"}},\"Function\":0},\"Name\":\"Sum(fact sales_data_1.TotalSales)\",\"NativeReferenceName\":\"Sum of TotalSales\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"TotalSales\"}},\"Function\":0}}}]},\"autoSelectVisualType\":false,\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 636.33,
+          "width": 530.80,
+          "x": 9.45,
+          "y": 83.48,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"e6315c30e5aee323b8a7\",\"layouts\":[{\"id\":0,\"position\":{\"x\":550.8860759493671,\"y\":83.0379746835443,\"z\":1,\"width\":729.1139240506329,\"height\":635.9493670886076,\"tabOrder\":1}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(fact sales_data_1.CustomerAge)\"},{\"queryRef\":\"Sum(fact sales_data_1.sales total)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"fact sales_data_1\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"CustomerAge\"},\"Name\":\"Sum(fact sales_data_1.CustomerAge)\",\"NativeReferenceName\":\"CustomerAge\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"sales total\"}},\"Function\":0},\"Name\":\"Sum(fact sales_data_1.sales total)\",\"NativeReferenceName\":\"Sum of sales total\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"columnHeaders\":[{\"properties\":{\"columnAdjustment\":{\"expr\":{\"Literal\":{\"Value\":\"'growToFit'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 635.95,
+          "width": 729.11,
+          "x": 550.89,
+          "y": 83.04,
+          "z": 1.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ],
+  "theme": "Sunset"
+}

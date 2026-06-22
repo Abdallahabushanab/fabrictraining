@@ -1,0 +1,40 @@
+table Product
+	lineageTag: d29dc56c-d3e1-4034-86a3-e5e554d63d21
+
+	column ProductID
+		dataType: double
+		lineageTag: 46f013ef-9d80-4b75-8540-b184a822ed8e
+		summarizeBy: none
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ProductName
+		dataType: string
+		lineageTag: e9fb69a3-3258-48fa-b793-8ac77afe0f46
+		summarizeBy: none
+		sourceColumn: ProductName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: cc2ef159-97b7-44af-962d-ba2c69970c76
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Product = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("rwa2frdggb6unbqtpfbehtoilu-6rziwvp36sou3dtww2nqz7qkea.datawarehouse.fabric.microsoft.com", "AZSQLDB_LH"),
+				    dbo_Product = Source{[Schema="dbo",Item="Product"]}[Data]
+				in
+				    dbo_Product
+
+	annotation PBI_ResultType = Table
+
