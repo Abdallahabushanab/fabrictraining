@@ -1,0 +1,11 @@
+EmployeeID,Name,Department,Salary,JoiningDate,City,Country
+101,John Smith,IT,60000,1/15/2020,New York,USA
+101,Sarah Lee,HR,55000,3/22/2019,London,UK
+103,Mike Brown,Finance,70000,7/10/2018,Toronto,Canada
+104,,Marketing,,5/18/2021,Sydney,Australia
+105,James Wilson,IT,65000,11/30/2020,New York,USA
+106,Olivia Taylor,HR,53000,1/5/2022,London,UK
+107,Liam Anderson,Finance,72000,9/14/2017,Toronto,Canada
+108,,Marketing,,2/28/2023,Sydney,Australia
+109,Noah Thomas,IT,67000,6/17/2019,Chicago,USA
+110,Isabella Jackson,Finance,75000,12/1/2016,New York,USA
